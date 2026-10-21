@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>読み込んでいます…</title></head><body><script>
+(function () {
+  'use strict';
+  var base = '/lp-pages/';
+  var path = window.location.pathname || '';
+  var slug = (path.indexOf(base) === 0 ? path.slice(base.length) : path.replace(/^\//, ''))
+    .replace(/^\/+|\/+$/g, '');
+  if (slug && slug.indexOf('.') === -1) {
+    window.location.replace(base + 'view.html?lp=' + encodeURIComponent(slug)
+      + window.location.search.replace(/^\?/, '&'));
+    return;
+  }
+  document.title = 'ページが見つかりません';
+  document.body.innerHTML = '<p style="font-family:-apple-system,system-ui,sans-serif;'
+    + 'color:#555;text-align:center;padding:80px 24px">ページが見つかりません。</p>';
+}());
+</script></body></html>
